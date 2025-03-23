@@ -1,4 +1,5 @@
-import { IsEmail, IsString, MaxLength, maxLength, MinLength } from "class-validator";
+import { IsEmail, IsOptional, IsString, MaxLength, maxLength, MinLength } from "class-validator";
+import { CreateProfileDto } from "src/profile/dtos/CreateProfile.dto";
 
 export class CreateUserDto {
     @IsString()
@@ -12,4 +13,7 @@ export class CreateUserDto {
     @IsString()
     @IsEmail()
     email: string;
+
+    @IsOptional()
+    profile: CreateProfileDto | null;
 }
